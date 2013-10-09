@@ -154,9 +154,10 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
  *
  * Loops through the field groups and their fields which need to be unique.
  * First removes the multiColumnUniqueness rule from each unique field.
- * If the 'onlyOnce' option is set, it adds the rule to the first of the
- * relevant fields found in the data array only.
- * Otherwise it adds the rule to each field of the field group.
+ * If the 'onlyOnce' option is set to false,
+ * it adds the rule to each field of the field group.
+ * Otherwise, by default, it adds the rule only to the first of the
+ * relevant fields found in the data array.
  *
  * @param Model $model Model using this behavior
  * @param array $options Options passed from Model::save() (unused).
@@ -164,7 +165,7 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
  */
 	public function beforeValidate(Model $model, $options = array()) {
 		$fieldGroupCount = count($this->settings[$model->alias]['fields']);
-		for ($groupNr = 0;$groupNr < $fieldGroupCount; $groupNr++) {
+		for ($groupNr = 0; $groupNr < $fieldGroupCount; $groupNr++) {
 			$uniqueFieldGrp = $this->settings[$model->alias]['fields'][$groupNr];
 			foreach ($uniqueFieldGrp as $uniqueField) {
 				if ($model->validator()->getField($uniqueField)) {
@@ -190,8 +191,10 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
 /**
  * Checks the uniqueness of multiple fields
  *
- * If a relevant field is not present in the data array
- * and the validation is for an existing record, the field will be loaded.
+ * Loops through the field that should be unique.
+ * If a field is not present in the data array and
+ * the validation is for an existing record,
+ * (if an ID is present) it is tried to load the value of the field.
  * Otherwise it's considered to be empty (e.g. when adding).
  *
  * @param Model $model Model using this behavior
@@ -209,7 +212,10 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
 			if (isset($model->data[$model->name][$key])) {
 				$value = $model->data[$model->name][$key];
 			} elseif (!empty($model->id)) {
-				$value = $model->field($key, array($model->primaryKey => $model->data[$model->name][$model->primaryKey]));
+				$value = $model->field($key, array($model->primaryKey => $model->id));
+				if ($value === false) {
+					$value = null;
+				}
 			} else {
 				$value = null;
 			}
