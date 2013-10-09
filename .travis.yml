@@ -12,16 +12,15 @@ before_script:
   - chmod -R 777 ../cakephp/app/tmp
   - sh -c "mysql -e 'CREATE DATABASE cakephp_test;'"
   - echo "<?php
-   class DATABASE_CONFIG {
-   public \$test = array(
-     'datasource' => 'Database/Mysql',
-     'database' => 'cakephp_test',
-     'host' => '0.0.0.0',
-     'login' => 'travis'
-     'host' => '',
-     'persistent' => false,
-   );
-   }" > ../cakephp/app/Config/database.php
+      class DATABASE_CONFIG {
+      public \$test = array(
+        'datasource' => 'Database/Mysql',
+        'database' => 'cakephp_test',
+        'host' => '0.0.0.0',
+        'login' => 'travis',
+        'persistent' => false,
+      );
+      }" > ../cakephp/app/Config/database.php
 
 script:
   - ./lib/Cake/Console/cake test MultiColumnUniqueness AllTests --stderr
