@@ -4,7 +4,7 @@
  *
  * @copyright 2013 Marc Würth @ ORCA Services AG
  * @author Marc Würth
- * @version 0.1
+ * @version 0.2
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  **/
 
