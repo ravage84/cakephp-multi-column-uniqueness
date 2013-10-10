@@ -1,6 +1,6 @@
 MultiColumnUniqueness
 =====================
-![Traiv-CI Build Status](https://travis-ci.org/ravage84/MultiColumnUniqueness.png)
+[![Traiv-CI Build Status](https://travis-ci.org/ravage84/MultiColumnUniqueness.png)](https://travis-ci.org/ravage84/MultiColumnUniqueness)
 
 A CakePHP 2.x behavior plugin to validate the uniqueness of multiple columns of a model.
 
