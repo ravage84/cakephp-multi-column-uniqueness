@@ -48,14 +48,81 @@ There are no plans to backport this to CakePHP 1.x.
 The plugin should be updated to support future 2.x releases.
 For CakePHP 3.0 it will need a total rewrite most proably...
 
-## Documentation
+## How To Use
 
-TODO
+Let's say you have a model ``Product`` which has many fields
+but two of them need to be unqiue in conjunction with each other.
+Those fields are ``name`` and ``manufacturer_id``.
+
+To enable the MultiColumnUniquenessBehavior for these fields
+you need to set the ``$actsAs`` property in the ``Product`` model.
+
+````php
+public $actsAs = array('MultiColumnUniqueness.MultiColumnUniqueness' => array(
+	'fields' => array('name', 'manufacturer_id')
+));
+````
+
+This is the simplest form of setup.
+It would output a ``The fields mane and manufacturer_id must be unique.``
+error message when the validation fails.
+
+Additionally you could also choose a custom validation error message like this:
+
+````php
+public $actsAs = array('MultiColumnUniqueness.MultiColumnUniqueness' => array(
+	'fields' => array('name', 'manufacturer_id'),
+	'errMsg' => "This name and manufacturer ID can't be used twice."
+));
+````
+
+Now let's say you also have three other fields named ``field1``, ``field2``, ``field13``
+which need to be unique in conjunction with each other in the same model.
+If you don't need custom error messages, you can set it up like this:
+
+````php
+public $actsAs = array('MultiColumnUniqueness.MultiColumnUniqueness' => array(
+	'fields' => array(
+		array('name', 'manufacturer_id'),
+		array('field1', 'field2', 'field3'),
+	)
+));
+````
+
+For the same situation but with custom error messages, do it like this:
+
+````php
+public $actsAs = array('MultiColumnUniqueness.MultiColumnUniqueness' => array(
+	'fields' => array(
+		array('name', 'manufacturer_id'),
+		array('field1', 'field2', 'field3'),
+	),
+	'errMsg' => array(
+		"This name and manufacturer ID can't be used twice.",
+		"This field1, field2, fiel3 can't be used twice"),
+));
+````
+
+By default the data validation rule will be added only to the first field
+which needs to be unique found in the data array.
+If you want to enforce the data validation on each unique field,
+set the ``onlyOnce`` option to false.
+This way the validation error message will be shown on each unique field.
+
+````php
+public $actsAs = array('MultiColumnUniqueness.MultiColumnUniqueness' => array(
+	'fields' => array(
+		array('name', 'manufacturer_id'),
+		array('field1', 'field2', 'field3'),
+	),
+	"onlyOnce' => false,
+));
+````
+This option can only be set per model, not per unique field group.
 
 ## TODOs
 
 * A composer.json
-* Documentation on how to use the plugin in this README (and not only within the behavior class)
 * Checking the Code Style with phpcs in Travis, [as CakePHP dose](https://github.com/cakephp/cakephp/blob/master/.travis.yml)
 * Running the tests with other databases in Travis, [as CakePHP dose](https://github.com/cakephp/cakephp/blob/master/.travis.yml)
 * See the [open issues](https://github.com/ravage84/MultiColumnUniqueness/issues)
