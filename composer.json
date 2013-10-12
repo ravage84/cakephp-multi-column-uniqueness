@@ -1,0 +1,17 @@
+    {
+        "name": "ravage84/multiunique",
+        "description": "A CakePHP Plugin for Validating Composite Unique Indices",
+        "type": "cakephp-plugin",
+        "homepage": "https://github.com/tenebrousedge/MultiColumnUniqueness.git",
+        "license": "MIT License",
+        "authors": [
+        {
+        "name": "Marc Würth",
+        "role": "Author"
+        }
+        ],
+        "require": {
+        "php": ">=5.2.8",
+        "composer/installers": "*"
+        }
+    }
