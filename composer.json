@@ -1,8 +1,8 @@
     {
-        "name": "ravage84/multiunique",
+        "name": "ravage84/MultiColumnUniqueness",
         "description": "A CakePHP Plugin for Validating Composite Unique Indices",
         "type": "cakephp-plugin",
-        "homepage": "https://github.com/tenebrousedge/MultiColumnUniqueness.git",
+        "homepage": "https://github.com/Ravage84/MultiColumnUniqueness.git",
         "license": "MIT License",
         "authors": [
         {
