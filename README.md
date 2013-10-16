@@ -54,6 +54,38 @@ Let's say you have a model ``Product`` which has many fields
 but two of them need to be unqiue in conjunction with each other.
 Those fields are ``name`` and ``manufacturer_id``.
 
+As you may know you *could* use the CakePHP built-in data validation rule named
+[isUnique](http://book.cakephp.org/2.0/en/models/data-validation.html#Model::Validation::isUnique).
+This rule even takes multiple columns, which you could implement like this:
+
+````php
+public $validate = array(
+	'first_name' => array(
+		'unique_first_last' => array(
+			'rule'    => array('checkMultiColumnUnique', array('first_name', 'last_name'), false)
+			'message' => 'The first and last name must be unique.'
+		)
+	),
+	// Additionally/optionally the same for the 'last_name' field
+;)
+
+
+public function checkMultiColumnUnique($ignoredData, $fields, $or = true) {
+		return $this->isUnique($fields, $or);
+}
+````
+
+So why bother using this plugin?
+Because the solution above has a few downsides.
+First either you setup the same rule for both/all fields that need to be unique
+or you just set it for one of the fields.
+
+If you set it for all fields the rule will be executed for each field
+resulting in multiple (and redundant) SQL queries.
+If you set it for only one field on the other hand, you have to include that field
+in the data array every time you want to save one of the fields that need to be unique.
+This plugins circumvents this by adding the rule dynamically.
+
 To enable the MultiColumnUniquenessBehavior for these fields
 you need to set the ``$actsAs`` property in the ``Product`` model.
 
