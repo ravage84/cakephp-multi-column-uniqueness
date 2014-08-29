@@ -16,7 +16,7 @@ But it should work with
 
 * CakePHP 2.4.1 or greater.
 * PHP 5.2.8 or greater.
-* Ohter data sources
+* Other data sources
 
 ## Installation
 
@@ -46,12 +46,12 @@ Since the API is still in development, the plugin hasn't reached 1.0 yet.
 
 There are no plans to backport this to CakePHP 1.x.
 The plugin should be updated to support future 2.x releases.
-For CakePHP 3.0 it will need a total rewrite most proably...
+For CakePHP 3.0 it will need a total rewrite most probably...
 
 ## How To Use
 
 Let's say you have a model ``Product`` which has many fields
-but two of them need to be unqiue in conjunction with each other.
+but two of them need to be unique in conjunction with each other.
 Those fields are ``name`` and ``manufacturer_id``.
 
 As you may know you *could* use the CakePHP built-in data validation rule named
