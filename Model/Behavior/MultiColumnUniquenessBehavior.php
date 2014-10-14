@@ -198,8 +198,8 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
  * Otherwise it's considered to be empty (e.g. when adding).
  *
  * @param Model $model Model using this behavior
- * @param $data array Unused
- * @param $fields array The fields to be checked
+ * @param array $data Unused
+ * @param array $fields The fields to be checked
  * @return bool True if valid, else false
  * @see Model::isUnique() Makes use of
  */
