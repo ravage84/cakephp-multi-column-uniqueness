@@ -44,7 +44,6 @@ class MultiColumnUniqueModelFixture extends CakeTestFixture {
  * 7. First field filled with non-empty or non-zero value, second "filled" with empty or zero value
  *
  * @var array
- * @todo Investigate why we can't use floats with decimal places
  */
 	public $records = array(
 		array('id' => 1,
