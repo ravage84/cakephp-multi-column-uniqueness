@@ -862,7 +862,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 	}
 
 /**
- * Creates a new record from given data and validate it
+ * Creates a new record from given data and validates it
  * 
  * Does the repetitive work for the tests above
  *
