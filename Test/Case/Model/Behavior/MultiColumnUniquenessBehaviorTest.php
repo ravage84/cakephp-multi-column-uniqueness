@@ -712,8 +712,8 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		);
 		$this->_validate($data, $expected);
 
-		// Same as above but with the id field set within the array
-		// It should still fail to validate, because the id property of the model isn't set
+		// Same as above but with the ID field set within the array
+		// It should still fail to validate, because the ID property of the model isn't set
 		$data = array('id' => 3, 'integer2' => 40,
 			'string1' => null, 'string2' => 'forty',
 			'boolean1' => null, 'boolean2' => false,
@@ -864,11 +864,11 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 /**
  * Creates a new record from given data and validates it
  * 
- * Does the repetitive work for the tests above
+ * Does the repetitive work for the tests above.
  *
- * @param $data	array The data array to validate
- * @param $expected array The expected validation error array
- * @param $id|bool integer The id of the record (optional)
+ * @param $data	array The data array to validate.
+ * @param $expected array The expected validation error array.
+ * @param $id|bool integer The ID of the record (optional).
  * @return void
  */
 	protected function _validate($data, $expected, $id = false) {
