@@ -43,7 +43,7 @@ class MultiColumnUniqueModelFixture extends CakeTestFixture {
 	);
 
 /**
- * records property
+ * Fixture records
  *
  * There is a system behind this data:
  * 1. Both fields are NULL
