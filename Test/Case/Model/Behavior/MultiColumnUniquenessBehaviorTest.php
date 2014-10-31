@@ -17,7 +17,7 @@ App::uses('MultiColumnUniquenessBehavior', 'MultiColumnUniqueness.Model/Behavior
 /**
  * MultiColumnUniqueness test
  *
- * @property AppModel $Model
+ * @property AppModel $_model
  * @coversDefaultClass MultiColumnUniqueness
  */
 class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
@@ -27,7 +27,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
  *
  * @var
  */
-	public $Model;
+	protected $_model;
 
 /**
  * Fixtures
@@ -65,7 +65,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Model = ClassRegistry::init('MultiColumnUniqueModel');
+		$this->_model = ClassRegistry::init('MultiColumnUniqueModel');
 	}
 
 /**
@@ -74,7 +74,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Model);
+		unset($this->_model);
 
 		parent::tearDown();
 	}
@@ -88,7 +88,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 	public function testDefaultConfig() {
 		$this->_loadBehavior();
 
-		$settings = $this->Model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
+		$settings = $this->_model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
 		$expected = array(
 			'fields' => array(),
 			'onlyOnce' => true,
@@ -108,7 +108,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 			array('fields' => array('integer1', 'integer2'))
 		);
 
-		$settings = $this->Model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
+		$settings = $this->_model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
 		$expected = array(
 			'fields' => array(array('integer1', 'integer2')),
 			'onlyOnce' => true,
@@ -128,7 +128,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 			array('fields' => array(array('integer1', 'integer2')))
 		);
 
-		$settings = $this->Model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
+		$settings = $this->_model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
 		$expected = array(
 			'fields' => array(array('integer1', 'integer2')),
 			'onlyOnce' => true,
@@ -151,7 +151,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 			)
 		);
 
-		$settings = $this->Model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
+		$settings = $this->_model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
 		$expected = array(
 			'fields' => array(array('integer1', 'integer2')),
 			'onlyOnce' => true,
@@ -174,7 +174,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 			)
 		);
 
-		$settings = $this->Model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
+		$settings = $this->_model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
 		$expected = array(
 			'fields' => array(array('integer1', 'integer2'), array('string1', 'string2')),
 			'onlyOnce' => true,
@@ -197,7 +197,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 			)
 		);
 
-		$settings = $this->Model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
+		$settings = $this->_model->Behaviors->MultiColumnUniqueness->settings['MultiColumnUniqueModel'];
 		$expected = array(
 			'fields' => array(array('integer1', 'integer2'), array('string1', 'string2')),
 			'onlyOnce' => true,
@@ -225,28 +225,28 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 
 		// None of the unique fields are set, no rule should be added
 		$data = array('float1' => 123.456, 'float2' => 123.456);
-		$this->Model->create($data);
-		$this->Model->invalidFields();
-		$this->assertSame(array(), $this->Model->validator()->getField());
+		$this->_model->create($data);
+		$this->_model->invalidFields();
+		$this->assertSame(array(), $this->_model->validator()->getField());
 
 		// All of the unique fields are set, the rule should be added only to the first field of each group
 		$data = array('integer1' => 1, 'integer2' => 2, 'string1' => 'foo',
 			'string2' => 'bar', 'boolean1' => true, 'boolean2' => false,
 			'float1' => 123.456, 'float2' => 123.456);
-		$this->Model->create($data);
-		$this->Model->invalidFields();
+		$this->_model->create($data);
+		$this->_model->invalidFields();
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('integer2'));
-		$this->assertNull($this->Model->validator()->getField('string1'));
-		$this->assertNull($this->Model->validator()->getField('boolean1'));
-		$this->assertNull($this->Model->validator()->getField('boolean2'));
-		$this->assertNull($this->Model->validator()->getField('datetime1'));
-		$this->assertNull($this->Model->validator()->getField('datetime2'));
-		$this->assertNull($this->Model->validator()->getField('float1'));
-		$this->assertNull($this->Model->validator()->getField('float2'));
+			$this->_model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('integer2'));
+		$this->assertNull($this->_model->validator()->getField('string1'));
+		$this->assertNull($this->_model->validator()->getField('boolean1'));
+		$this->assertNull($this->_model->validator()->getField('boolean2'));
+		$this->assertNull($this->_model->validator()->getField('datetime1'));
+		$this->assertNull($this->_model->validator()->getField('datetime2'));
+		$this->assertNull($this->_model->validator()->getField('float1'));
+		$this->assertNull($this->_model->validator()->getField('float2'));
 
 		// The second and third fields of each group are set,
 		// the rule should be added only to the second field of each group
@@ -254,20 +254,20 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		$data = array('integer2' => 2, 'string1' => 'foo',
 			'boolean1' => true, 'boolean2' => false,
 			'float1' => 123.456, 'float2' => 123.456);
-		$this->Model->create($data);
-		$this->Model->invalidFields();
+		$this->_model->create($data);
+		$this->_model->invalidFields();
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('integer2')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('integer2')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('string1'));
-		$this->assertNull($this->Model->validator()->getField('boolean2'));
-		$this->assertNull($this->Model->validator()->getField('datetime1'));
-		$this->assertNull($this->Model->validator()->getField('datetime2'));
-		$this->assertNull($this->Model->validator()->getField('float1'));
-		$this->assertNull($this->Model->validator()->getField('float2'));
+			$this->_model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('string1'));
+		$this->assertNull($this->_model->validator()->getField('boolean2'));
+		$this->assertNull($this->_model->validator()->getField('datetime1'));
+		$this->assertNull($this->_model->validator()->getField('datetime2'));
+		$this->assertNull($this->_model->validator()->getField('float1'));
+		$this->assertNull($this->_model->validator()->getField('float2'));
 
 		// The third field of each group is set,
 		// the rule should be added only to the third field of each group
@@ -275,20 +275,20 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		$data = array('string1' => 'foo',
 			'boolean2' => false,
 			'float1' => 123.456, 'float2' => 123.456);
-		$this->Model->create($data);
-		$this->Model->invalidFields();
+		$this->_model->create($data);
+		$this->_model->invalidFields();
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('string1')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('string1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('boolean2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('integer2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('datetime1'));
-		$this->assertNull($this->Model->validator()->getField('datetime2'));
-		$this->assertNull($this->Model->validator()->getField('float1'));
-		$this->assertNull($this->Model->validator()->getField('float2'));
+			$this->_model->validator()->getField('boolean2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('integer2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('datetime1'));
+		$this->assertNull($this->_model->validator()->getField('datetime2'));
+		$this->assertNull($this->_model->validator()->getField('float1'));
+		$this->assertNull($this->_model->validator()->getField('float2'));
 	}
 
 /**
@@ -310,74 +310,74 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 
 		// None of the unique fields are set, no rule should be added
 		$data = array('float1' => 123.456, 'float2' => 123.456);
-		$this->Model->create($data);
-		$this->Model->invalidFields();
-		$this->assertSame(array(), $this->Model->validator()->getField());
+		$this->_model->create($data);
+		$this->_model->invalidFields();
+		$this->assertSame(array(), $this->_model->validator()->getField());
 
 		// All of the unique fields are set, the rule should be added only to the first field of each group
 		$data = array('integer1' => 1, 'integer2' => 2, 'string1' => 'foo',
 			'string2' => 'bar', 'boolean1' => true, 'boolean2' => false,
 			'float1' => 123.456, 'float2' => 123.456);
-		$this->Model->create($data);
-		$this->Model->invalidFields();
+		$this->_model->create($data);
+		$this->_model->invalidFields();
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('integer2')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('integer2')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('string1')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('string1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('boolean2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('datetime1'));
-		$this->assertNull($this->Model->validator()->getField('datetime2'));
-		$this->assertNull($this->Model->validator()->getField('float1'));
-		$this->assertNull($this->Model->validator()->getField('float2'));
+			$this->_model->validator()->getField('boolean2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('datetime1'));
+		$this->assertNull($this->_model->validator()->getField('datetime2'));
+		$this->assertNull($this->_model->validator()->getField('float1'));
+		$this->assertNull($this->_model->validator()->getField('float2'));
 
 		// The second and third fields of each group are set,
 		// the rule should be added all fields of each group
 		$data = array('integer2' => 2, 'string1' => 'foo',
 			'boolean1' => true, 'boolean2' => false,
 			'float1' => 123.456, 'float2' => 123.456);
-		$this->Model->create($data);
-		$this->Model->invalidFields();
-		$this->assertNull($this->Model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
+		$this->_model->create($data);
+		$this->_model->invalidFields();
+		$this->assertNull($this->_model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('integer2')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('integer2')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('string1')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('string1')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('boolean2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('datetime1'));
-		$this->assertNull($this->Model->validator()->getField('datetime2'));
-		$this->assertNull($this->Model->validator()->getField('float1'));
-		$this->assertNull($this->Model->validator()->getField('float2'));
+			$this->_model->validator()->getField('boolean2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('datetime1'));
+		$this->assertNull($this->_model->validator()->getField('datetime2'));
+		$this->assertNull($this->_model->validator()->getField('float1'));
+		$this->assertNull($this->_model->validator()->getField('float2'));
 
 		// The third field of each group is set,
 		// the rule should be added all fields of each group
 		$data = array('string1' => 'foo',
 			'boolean2' => false,
 			'float1' => 123.456, 'float2' => 123.456);
-		$this->Model->create($data);
-		$this->Model->invalidFields();
-		$this->assertNull($this->Model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
+		$this->_model->create($data);
+		$this->_model->invalidFields();
+		$this->assertNull($this->_model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('integer1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('string1')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
+			$this->_model->validator()->getField('string1')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('string2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('boolean1')->getRule('multiColumnUniqueness'));
 		$this->assertInstanceOf('CakeValidationRule',
-			$this->Model->validator()->getField('boolean2')->getRule('multiColumnUniqueness'));
-		$this->assertNull($this->Model->validator()->getField('datetime1'));
-		$this->assertNull($this->Model->validator()->getField('datetime2'));
-		$this->assertNull($this->Model->validator()->getField('float1'));
-		$this->assertNull($this->Model->validator()->getField('float2'));
+			$this->_model->validator()->getField('boolean2')->getRule('multiColumnUniqueness'));
+		$this->assertNull($this->_model->validator()->getField('datetime1'));
+		$this->assertNull($this->_model->validator()->getField('datetime2'));
+		$this->assertNull($this->_model->validator()->getField('float1'));
+		$this->assertNull($this->_model->validator()->getField('float2'));
 	}
 
 /**
@@ -855,9 +855,9 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
  */
 	protected function _loadBehavior($config = null) {
 		if ($config === null) {
-			$this->Model->Behaviors->load('MultiColumnUniqueness.MultiColumnUniqueness');
+			$this->_model->Behaviors->load('MultiColumnUniqueness.MultiColumnUniqueness');
 		} else {
-			$this->Model->Behaviors->load('MultiColumnUniqueness.MultiColumnUniqueness', $config);
+			$this->_model->Behaviors->load('MultiColumnUniqueness.MultiColumnUniqueness', $config);
 		}
 	}
 
@@ -872,9 +872,9 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
  * @return void
  */
 	protected function _validate($data, $expected, $id = false) {
-		$this->Model->create($data);
-		$this->Model->id = $id;
-		$this->assertSame($expected, $this->Model->invalidFields());
+		$this->_model->create($data);
+		$this->_model->id = $id;
+		$this->assertSame($expected, $this->_model->invalidFields());
 	}
 
 }
