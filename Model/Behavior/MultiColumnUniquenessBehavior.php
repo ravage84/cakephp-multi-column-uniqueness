@@ -161,7 +161,7 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
  *
  * @param Model $model Model using this behavior
  * @param array $options Options passed from Model::save() (unused).
- * @return boolean True if validate operation should continue, false to abort
+ * @return bool True if validate operation should continue, false to abort
  */
 	public function beforeValidate(Model $model, $options = array()) {
 		$fieldGroupCount = count($this->settings[$model->alias]['fields']);
