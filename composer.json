@@ -34,7 +34,8 @@
     "composer/installers": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "3.7.38"
+    "phpunit/phpunit": "3.7.38",
+    "satooshi/php-coveralls": "dev-master"
   },
   "extra": {
     "installer-name": "MultiColumnUniqueness"
