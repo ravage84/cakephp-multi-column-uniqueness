@@ -1,8 +1,6 @@
 <?php
 /**
  * MultiColumnUniquenessFixture
- *
- * @todo Define $records
  */
 class MultiColumnUniqueModelFixture extends CakeTestFixture {
 

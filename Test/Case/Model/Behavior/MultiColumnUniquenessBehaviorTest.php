@@ -537,8 +537,6 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 
 /**
  * Tests with a group of float fields
- *
- * @todo Investigate why we can't use floats with decimal places
  */
 	public function testFloatFields() {
 		$this->_loadBehavior(
