@@ -10,7 +10,7 @@
 	  "unique"
 	],
   "type": "cakephp-plugin",
-  "homepage": "https://github.com/Ravage84/MultiColumnUniqueness.git",
+  "homepage": "https://github.com/ravage84/MultiColumnUniqueness",
   "license": "MIT",
   "authors": [
 	{
