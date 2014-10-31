@@ -18,7 +18,7 @@ App::uses('MultiColumnUniquenessBehavior', 'MultiColumnUniqueness.Model/Behavior
  * MultiColumnUniqueness test
  *
  * @property AppModel $_model
- * @coversDefaultClass MultiColumnUniqueness
+ * @coversDefaultClass MultiColumnUniquenessBehavior
  */
 class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 
