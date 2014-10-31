@@ -885,9 +885,9 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
  * @return void
  */
 	protected function _validate($data, $expected, $id = false) {
+		$this->_model->create($data);
 		$this->_model->id = $id;
-		$invalidFields = $this->_validateData($data);
-		$this->assertSame($expected, $invalidFields);
+		$this->assertSame($expected, $this->_model->invalidFields());
 	}
 
 }
