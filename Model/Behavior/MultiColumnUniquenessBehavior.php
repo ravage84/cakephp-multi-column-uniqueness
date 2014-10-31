@@ -211,6 +211,7 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
 		if (!is_array($fields)) {
 			$fields = array($fields);
 		}
+
 		$check = array();
 		foreach ($fields as $key) {
 			if (isset($model->data[$model->name][$key])) {
