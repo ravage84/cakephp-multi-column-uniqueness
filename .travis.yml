@@ -8,7 +8,6 @@ php:
 
 env:
   global:
-    - REPO_NAME=MultiColumnUniqueness
     - PLUGIN_NAME=MultiColumnUniqueness
     - REQUIRE=""
 
