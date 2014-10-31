@@ -11,7 +11,7 @@
 	],
   "type": "cakephp-plugin",
   "homepage": "https://github.com/Ravage84/MultiColumnUniqueness.git",
-  "license": "MIT License",
+  "license": "MIT",
   "authors": [
 	{
 	  "name": "Marc Würth",
