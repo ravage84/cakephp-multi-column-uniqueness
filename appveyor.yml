@@ -33,7 +33,6 @@ install:
   - cd c:\projects\cakephp-multi-column-uniquness
   - mkdir MultiColumnUniqueness
   - mv *.* MultiColumnUniqueness
-  - mv .* MultiColumnUniqueness
   - php -r "readfile('https://getcomposer.org/installer');" | php
   - composer -sdev create-project friendsofcake/app-template cakephp-plugin --keep-vcs
   - mv MultiColumnUniqueness cakephp-plugin\Plugin\MultiColumnUniqueness
