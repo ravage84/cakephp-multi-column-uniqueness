@@ -8,8 +8,8 @@ branches:
 environment:
   global:
     PHP: "C:/PHP"
-    DATABASE_URL: 'sqlserver://sa:Password12!@.\SQL2012SP1/cakephp'
-    DATABASE_TEST_URL: 'sqlserver://sa:Password12!@.\SQL2012SP1/cakephp'
+    DATABASE_URL: 'sqlserver://sa:Password12!@.\SQL2012SP1/cakephp?MultipleActiveResultSets=false'
+    DATABASE_TEST_URL: 'sqlserver://sa:Password12!@.\SQL2012SP1/cakephp?MultipleActiveResultSets=false'
     PLUGIN_NAME: 'MultiColumnUniqueness'
   matrix:
       - db: 2012
@@ -41,5 +41,7 @@ install:
   - mv %PLUGIN_NAME% cakephp-app\Plugin\%PLUGIN_NAME%
 test_script:
   - sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -Q "create database cakephp;"
+  - echo %DATABASE_URL%
+  - echo %DATABASE_TEST_URL%
   - cd c:\projects\cakephp-plugin\cakephp-app\app
   - Console\cake.bat test MultiColumnUniqueness AllMultiColumnUniqueness --stderr
