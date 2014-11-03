@@ -1,5 +1,5 @@
 {
-  "name": "ravage84/MultiColumnUniqueness",
+  "name": "ravage84/multi-column-uniqueness",
   "description": "A CakePHP Plugin for Validating Composite Unique Indices",
 	"keywords":[
 	  "cakephp",
