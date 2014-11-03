@@ -32,6 +32,7 @@ install:
   - echo extension=php_fileinfo.dll >> php.ini
   - cd c:\projects\cakephp-multi-column-uniquness
   - php -r "readfile('https://getcomposer.org/installer');" | php
+  - php composer.phar remove satooshi/php-coveralls
   - php composer.phar require cakephp/cakephp:2.*
   - php composer.phar install --prefer-dist --no-interaction --dev
 test_script:
