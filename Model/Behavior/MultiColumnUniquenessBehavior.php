@@ -134,13 +134,11 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
 		if (!empty($this->settings[$model->alias]['fields'][0]) &&
 			!is_array($this->settings[$model->alias]['fields'][0])) {
 			$fieldGroup = $this->settings[$model->alias]['fields'];
-			$this->settings[$model->alias]['fields'] = array();
 			$this->settings[$model->alias]['fields'] = array($fieldGroup);
 		}
 		if (!empty($this->settings[$model->alias]['errMsg']) &&
 			!is_array($this->settings[$model->alias]['errMsg'])) {
 			$errMsg = $this->settings[$model->alias]['errMsg'];
-			$this->settings[$model->alias]['errMsg'] = array();
 			$this->settings[$model->alias]['errMsg'] = array($errMsg);
 		}
 
