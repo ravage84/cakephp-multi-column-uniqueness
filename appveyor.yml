@@ -31,6 +31,7 @@ install:
   - echo extension=php_mbstring.dll >> php.ini
   - echo extension=php_fileinfo.dll >> php.ini
   - cd c:\projects\cakephp-multi-column-uniquness
+  - mv
   - php -r "readfile('https://getcomposer.org/installer');" | php
   - php composer.phar remove satooshi/php-coveralls --dev
   - php composer.phar require cakephp/cakephp:2.*
@@ -38,4 +39,12 @@ install:
 test_script:
   - sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -Q "create database cakephp;"
   - cd C:\projects\cakephp-multi-column-uniquness
-  - vendor\bin\phpunit.bat
+  - mkdir MultiColumnUniqueness
+  - mv *.* MultiColumnUniqueness
+  - mv .* MultiColumnUniqueness
+  - composer -sdev create-project friendsofcake/app-template cakephp-plugin --keep-vcs
+  - mv MultiColumnUniqueness cakephp-plugin\Plugin\MultiColumnUniqueness
+  - cd cakephp-plugin\app
+  - set DATABASE_URL=sqlserver://sa:Password12!@.\SQL2012SP1/cakephp
+  - set DATABASE_TEST_URL=sqlserver://sa:Password12!@.\SQL2012SP1/cakephp
+  - Console\cake.bat test MultiColumnUniqueness AllMultiColumnUniqueness --stderr
