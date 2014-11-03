@@ -394,12 +394,12 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -422,7 +422,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
@@ -431,7 +431,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer1 must be unique.'
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 /**
  * Tests with a group of integer fields
@@ -451,7 +451,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
@@ -460,17 +460,17 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer1 and integer2 must be unique.'
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing empty or zero value
 		$data = array('integer1' => 3, 'integer2' => 0);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing NULL
 		$data = array('integer1' => 8, 'integer2' => null);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -491,7 +491,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
@@ -500,17 +500,17 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields string1 and string2 must be unique.'
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing empty or zero value
 		$data = array('string1' => 'three', 'string2' => 0);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing NULL
 		$data = array('string1' => 'eight', 'string2' => null);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -531,7 +531,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
@@ -540,7 +540,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields boolean1 and boolean2 must be unique.'
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing empty or zero value
 		// We can't because 0 = false, we already covered all cases in the fixtures
@@ -548,7 +548,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with partially unique data containing NULL
 		$data = array('boolean1' => false, 'boolean2' => null);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -569,7 +569,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
@@ -578,17 +578,17 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields datetime1 and datetime2 must be unique.'
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing empty or zero value
 		$data = array('datetime1' => '2013-01-03 12:13:14', 'datetime2' => 0);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing NULL
 		$data = array('datetime1' => '2013-01-08 12:13:14', 'datetime2' => null);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -609,7 +609,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
@@ -618,17 +618,17 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields float1 and float2 must be unique.'
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing empty or zero value
 		$data = array('float1' => 3.0, 'float2' => 0);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing NULL
 		$data = array('float1' => 8.0, 'float2' => null);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -649,7 +649,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
@@ -658,17 +658,17 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer1, integer2, string1, string2, boolean1, boolean2, datetime1, datetime2, float1 and float2 must be unique.'
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing empty or zero value
 		$data = array_merge($this->_uniqueData, array('float2' => 0));
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with partially unique data containing NULL
 		$data = array_merge($this->_uniqueData, array('float2' => null));
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -696,7 +696,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 			'datetime1' => '2013-01-06 12:13:14', 'datetime2' => '2013-06-01 12:13:14',
 			'float1' => 6.0, 'float2' => 66.0);
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Try to save a new record resembling record 3, except the field integer1 is missing
 		// Since the missing field contains a null value, it doesn't validate
@@ -710,7 +710,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer1, string1, boolean1, datetime2 and float1 must be unique.',
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Same as above but with the ID field set within the array
 		// It should still fail to validate, because the ID property of the model isn't set
@@ -724,7 +724,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer1, string1, boolean1, datetime2 and float1 must be unique.',
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -752,7 +752,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 			'datetime1' => '2013-01-06 12:13:14', 'datetime2' => '2013-06-01 12:13:14',
 			'float1' => 60.0, 'float2' => 660.0);
 		$expected = array();
-		$this->_validate($data, $expected, 5);
+		$this->_assertValidate($data, $expected, 5);
 
 		// Try to save record 5 but with the values of record 2, except the field integer1 is missing
 		// Since we load the value of the integer1 field from record 5, it should validate
@@ -762,7 +762,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 			'datetime1' => '2013-01-03 12:13:14', 'datetime2' => null,
 			'float1' => 3.0, 'float2' => null);
 		$expected = array();
-		$this->_validate($data, $expected, 5);
+		$this->_assertValidate($data, $expected, 5);
 
 		// Try to save a non-existent record with the values of record 3,
 		// except the field integer1 is missing and the ID is set wrong
@@ -778,7 +778,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer1, string1, boolean1, datetime2 and float1 must be unique.',
 			)
 		);
-		$this->_validate($data, $expected, 123456789);
+		$this->_assertValidate($data, $expected, 123456789);
 	}
 
 /**
@@ -800,7 +800,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 		// Test with unique data
 		$data = $this->_uniqueData;
 		$expected = array();
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data
 		$data = $this->_nonUniqueData;
@@ -812,7 +812,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer2, string2, boolean2, datetime2 and float2 must be unique.',
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data in the first group
 		$data = array_merge($this->_nonUniqueData,
@@ -827,7 +827,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer1, string1, boolean1, datetime1 and float1 must be unique.',
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 
 		// Test with non-unique data in the second group
 		$data = array_merge($this->_nonUniqueData,
@@ -842,7 +842,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 				0 => 'The fields integer2, string2, boolean2, datetime2 and float2 must be unique.',
 			)
 		);
-		$this->_validate($data, $expected);
+		$this->_assertValidate($data, $expected);
 	}
 
 /**
@@ -866,7 +866,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
  *
  * Does the repetitive work for the tests above.
  *
- * @param $data
+ * @param array $data The data array to validate.
  * @return array The invalid fields.
  */
 	protected function _validateData($data) {
@@ -875,16 +875,16 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 	}
 
 /**
- *
+ * Assert the validated data.
  * 
  * Does the repetitive work for the tests above.
  *
- * @param $data	array The data array to validate.
- * @param $expected array The expected validation error array.
- * @param $id|bool integer The ID of the record (optional).
+ * @param array $data The data array to validate.
+ * @param array $expected The expected validation error array.
+ * @param int|bool $id The ID of the record (optional).
  * @return void
  */
-	protected function _validate($data, $expected, $id = false) {
+	protected function _assertValidate($data, $expected, $id = false) {
 		$this->_model->create($data);
 		$this->_model->id = $id;
 		$this->assertSame($expected, $this->_model->invalidFields());
