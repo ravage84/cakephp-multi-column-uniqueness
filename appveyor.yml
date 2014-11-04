@@ -44,4 +44,5 @@ test_script:
   - php -r "print_r('APP_NAME SERVER set ' . isset($_SERVER['APP_NAME'])); "
   - php -r "print_r('APP_NAME ENV set ' . isset($_ENV['APP_NAME'])); "
   - php -r "print_r('APP_NAME getenv ' . getenv('APP_NAME')); "
+  - Console\cake.bat test core AllTests --stderr
   - Console\cake.bat test MultiColumnUniqueness AllMultiColumnUniqueness --stderr
