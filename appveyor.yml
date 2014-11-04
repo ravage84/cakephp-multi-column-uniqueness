@@ -41,4 +41,7 @@ install:
 test_script:
   - sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -Q "create database cakephp;"
   - cd c:\projects\cakephp-plugin\cakephp-app\app
+  - php -r "print_r('APP_NAME SERVER set ' . isset($_SERVER['APP_NAME'])); "
+  - php -r "print_r('APP_NAME ENV set ' . isset($_ENV['APP_NAME'])); "
+  - php -r "print_r('APP_NAME getenv ' . getenv('APP_NAME')); "
   - Console\cake.bat test MultiColumnUniqueness AllMultiColumnUniqueness --stderr
