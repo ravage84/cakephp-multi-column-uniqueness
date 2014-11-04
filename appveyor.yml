@@ -33,11 +33,11 @@ install:
   - echo extension=php_fileinfo.dll >> php.ini
   - cd c:\projects\cakephp-plugin
   - mkdir ..\%PLUGIN_NAME%
-  - mv * ..\%PLUGIN_NAME%
+  - mv * ../%PLUGIN_NAME%
   - php -r "readfile('https://getcomposer.org/installer');" | php
   - php composer.phar -sdev create-project friendsofcake/app-template cakephp-app --keep-vcs
-  - mv ..\%PLUGIN_NAME%\Test\database.php cakephp-app\app\Config\database.php
-  - mv ..\%PLUGIN_NAME% cakephp-app\Plugin\%PLUGIN_NAME%
+  - mv ../%PLUGIN_NAME%\Test\database.php cakephp-app\app\Config\database.php
+  - mv ../%PLUGIN_NAME% cakephp-app\Plugin\%PLUGIN_NAME%
 test_script:
   - sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -Q "create database cakephp;"
   - cd c:\projects\cakephp-plugin\cakephp-app\app
