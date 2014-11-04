@@ -42,8 +42,8 @@ test_script:
   - cd c:\projects\cakephp-plugin\cakephp-app\app
   - SET APP_NAME=PluginTest
   - SET DURATION=3600
-  - SET CACHE=c:\projects\cakephp-plugin\cakephp-app\tmp\cache\
-  - SET LOGS=c:\projects\cakephp-plugin\cakephp-app\tmp\logs\
+  - SET CACHE=c:/projects/cakephp-plugin/cakephp-app/tmp/cache/
+  - SET LOGS=c:/projects/cakephp-plugin/cakephp-app/tmp/logs/
   - php -r "print_r('APP_NAME getenv ' . getenv('APP_NAME')); "
   - SET DEBUG=2
   - SET SECURITY_SALT="DYhG93b0qyJfI234v23efsVoUubWwvniR2G0FgaC9mi"
