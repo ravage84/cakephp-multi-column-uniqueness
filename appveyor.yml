@@ -22,6 +22,7 @@ install:
   - 7z x php.zip -oc:\php
   - cd c:\php
   - copy php.ini-production php.ini
+  - echo variables_order = "EGPCS" >> php.ini
   - echo date.timezone="UTC" >> php.ini
   - echo extension_dir=ext >> php.ini
   - echo extension=php_openssl.dll >> php.ini
