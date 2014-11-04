@@ -36,13 +36,25 @@ install:
   - mv * ../%PLUGIN_NAME%
   - php -r "readfile('https://getcomposer.org/installer');" | php
   - php composer.phar -sdev create-project friendsofcake/app-template cakephp-app --keep-vcs
-  - mv ../%PLUGIN_NAME%/Test/appveyor.env cakephp-app\app\Config\.env
   - mv ../%PLUGIN_NAME% cakephp-app\Plugin\%PLUGIN_NAME%
 test_script:
   - sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -Q "create database cakephp;"
   - cd c:\projects\cakephp-plugin\cakephp-app\app
-  - php -r "print_r('APP_NAME SERVER set ' . isset($_SERVER['APP_NAME'])); "
-  - php -r "print_r('APP_NAME ENV set ' . isset($_ENV['APP_NAME'])); "
+  - SET APP_NAME=PluginTest
   - php -r "print_r('APP_NAME getenv ' . getenv('APP_NAME')); "
+  - SET DEBUG=2
+  - SET SECURITY_SALT="DYhG93b0qyJfI234v23efsVoUubWwvniR2G0FgaC9mi"
+  - SET SECURITY_CIPHER_SEED="768593096556242496749683645"
+  - SET DATABASE_URL="sqlserver://sa:Password12!@.\SQL2012SP1/cakephp?MultipleActiveResultSets=false"
+  - SET DATABASE_TEST_URL="sqlserver://sa:Password12!@.\SQL2012SP1/cakephp?MultipleActiveResultSets=false"
+  - SET CACHE_URL="file:///CACHE/?prefix=APP_NAME_&duration=DURATION"
+  - SET CACHE_DEBUG_KIT_URL="file:///CACHE/?prefix=APP_NAME_debug_kit_&duration=DURATION"
+  - SET CACHE_CAKE_CORE_URL="file:///CACHE/?prefix=APP_NAME_cake_core_&duration=DURATION"
+  - SET CACHE_CAKE_MODEL_URL="file:///CACHE/?prefix=APP_NAME_cake_model_&duration=DURATION"
+  - SET LOG_URL="file:///LOGS/?types=notice,info,debug&file=debug"
+  - SET LOG_ERROR_URL="file:///LOGS/?types=warning,error,critical,alert,emergency&file=error"
+  - SET EMAIL_URL="mail://localhost/?from=you@localhost"
+  - SET EMAIL_SMTP_URL="smtp://user:secret@localhost:25/?from[site@localhost]=My+Site&timeout=30"
+  - SET EMAIL_FAST_URL="smtp://user:secret@localhost:25/?from=you@localhost&messageId=1&template=0&layout=0&timeout=30"
   - Console\cake.bat test core AllTests --stderr
   - Console\cake.bat test MultiColumnUniqueness AllMultiColumnUniqueness --stderr
