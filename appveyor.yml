@@ -22,7 +22,6 @@ install:
   - 7z x php.zip -oc:\php
   - cd c:\php
   - copy php.ini-production php.ini
-  - echo variables_order = "EGPCS" >> php.ini
   - echo date.timezone="UTC" >> php.ini
   - echo extension_dir=ext >> php.ini
   - echo extension=php_openssl.dll >> php.ini
@@ -39,8 +38,8 @@ install:
   - php composer.phar -sdev create-project friendsofcake/app-template cakephp-app --keep-vcs
   - mv %PLUGIN_NAME% cakephp-app\Plugin\%PLUGIN_NAME%
   - echo export export DEBUG=2 > cakephp-app\app\Config\.env
-  - echo export DATABASE_URL="sqlserver://sa:Password12!@.\SQL2012SP1/cakephp?MultipleActiveResultSets=false" >> cakephp-app\app\Config\.env
-  - echo export DATABASE_TEST_URL="sqlserver://sa:Password12!@.\SQL2012SP1/cakephp?MultipleActiveResultSets=false" >> cakephp-app\app\Config\.env
+  - echo export DATABASE_URL="sqlserver://sa:Password12!@.\\SQL2012SP1/cakephp?MultipleActiveResultSets=false" >> cakephp-app\app\Config\.env
+  - echo export DATABASE_TEST_URL="sqlserver://sa:Password12!@.\\SQL2012SP1/cakephp?MultipleActiveResultSets=false" >> cakephp-app\app\Config\.env
 test_script:
   - sqlcmd -S ".\SQL2012SP1" -U sa -P Password12! -Q "create database cakephp;"
   - cd c:\projects\cakephp-plugin\cakephp-app\app
