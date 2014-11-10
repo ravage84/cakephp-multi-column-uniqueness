@@ -1,5 +1,5 @@
 {
-  "name": "ravage84/multi-column-uniqueness",
+  "name": "ravage84/cakephp-multi-column-uniqueness",
   "description": "A CakePHP Plugin for Validating Composite Unique Indices",
     "keywords":[
       "cakephp",
@@ -10,7 +10,7 @@
       "unique"
     ],
   "type": "cakephp-plugin",
-  "homepage": "https://github.com/ravage84/multi-column-uniqueness",
+  "homepage": "https://github.com/ravage84/cakephp-multi-column-uniqueness",
   "license": "MIT",
   "authors": [
     {
@@ -21,13 +21,13 @@
     },
     {
       "name": "Other contributors",
-      "homepage": "https://github.com/ravage84/multi-column-uniqueness/graphs/contributors",
+      "homepage": "https://github.com/ravage84/cakephp-multi-column-uniqueness/graphs/contributors",
       "role": "Contributors"
     }
   ],
   "support": {
-    "source": "https://github.com/ravage84/multi-column-uniqueness",
-    "issues": "https://github.com/ravage84/multi-column-uniqueness/issues"
+    "source": "https://github.com/ravage84/cakephp-multi-column-uniqueness",
+    "issues": "https://github.com/ravage84/cakephp-multi-column-uniqueness/issues"
   },
   "require": {
     "php": ">=5.3.0",
