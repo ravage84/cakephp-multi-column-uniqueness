@@ -169,14 +169,15 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
 		$fieldGroupCount = count($this->settings[$model->alias]['fields']);
 		for ($groupNr = 0; $groupNr < $fieldGroupCount; $groupNr++) {
 			$uniqueFieldGrp = $this->settings[$model->alias]['fields'][$groupNr];
+			$fieldGroupName = 'multiColumnUniqueness-group_' . ($groupNr + 1);
 			foreach ($uniqueFieldGrp as $uniqueField) {
 				if ($model->validator()->getField($uniqueField)) {
-					$model->validator()->remove($uniqueField, 'multiColumnUniqueness');
+					$model->validator()->remove($uniqueField, $fieldGroupName);
 				}
 			}
 			foreach ($uniqueFieldGrp as $uniqueField) {
 				if (isset($model->data[$model->name]) && array_key_exists($uniqueField, $model->data[$model->name])) {
-					$model->validator()->add($uniqueField, 'multiColumnUniqueness', array(
+					$model->validator()->add($uniqueField, $fieldGroupName, array(
 						'rule' => array('multiColumnUniqueness', $uniqueFieldGrp),
 						'message' => $this->settings[$model->alias]['errMsg'][$groupNr],
 					));
