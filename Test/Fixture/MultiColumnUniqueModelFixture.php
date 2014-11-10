@@ -9,7 +9,7 @@
  * @copyright Marc Würth
  * @author Marc Würth <ravage@bluewin.ch>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
- * @link https://github.com/ravage84/MultiColumnUniqueness
+ * @link https://github.com/ravage84/cakephp-multi-column-uniqueness
  */
 
 /**

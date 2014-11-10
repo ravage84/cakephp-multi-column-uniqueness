@@ -9,7 +9,7 @@
  * @copyright Marc Würth
  * @author Marc Würth <ravage@bluewin.ch>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
- * @link https://github.com/ravage84/MultiColumnUniqueness
+ * @link https://github.com/ravage84/cakephp-multi-column-uniqueness
  */
 
 App::uses('MultiColumnUniquenessBehavior', 'MultiColumnUniqueness.Model/Behavior');
@@ -847,9 +847,9 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 
 /**
  * Loads the behavior with the given config
- * 
+ *
  * Specifically handles the case of setting no config at all.
- * 
+ *
  * @param null|array $config Optional Behavior config to set.
  * @return void
  */
@@ -876,7 +876,7 @@ class MultiColumnUniquenessBehaviorTest extends CakeTestCase {
 
 /**
  * Assert the validated data.
- * 
+ *
  * Does the repetitive work for the tests above.
  *
  * @param array $data The data array to validate.
