@@ -27,7 +27,7 @@ But it should work with
 
 ### Using Composer
 
-Not supported yet.
+See the [CakePHP plugin installation guide](http://book.cakephp.org/2.0/en/plugins/how-to-install-plugins.html#composer) in the CakePHP Cookbook.
 
 ## Reporting issues
 
