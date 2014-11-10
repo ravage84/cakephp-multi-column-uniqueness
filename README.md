@@ -3,6 +3,8 @@ MultiColumnUniqueness
 [![Travis-CI Build Status](https://travis-ci.org/ravage84/cakephp-multi-column-uniqueness.png)](https://travis-ci.org/ravage84/cakephp-multi-column-uniqueness)
 [![Coverage Status](https://img.shields.io/coveralls/ravage84/cakephp-multi-column-uniqueness.svg)](https://coveralls.io/r/ravage84/cakephp-multi-column-uniqueness?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ravage84/cakephp-multi-column-uniqueness/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ravage84/cakephp-multi-column-uniqueness/?branch=master)
+[![Total Downloads](https://poser.pugx.org/ravage84/cakephp-multi-column-uniqueness/d/total.png)](https://packagist.org/packages/ravage84/cakephp-multi-column-uniqueness)
+[![Latest Stable Version](https://poser.pugx.org/ravage84/cakephp-multi-column-uniqueness/v/stable.png)](https://packagist.org/packages/ravage84/cakephp-multi-column-uniqueness)
 
 A CakePHP 2.x behavior plugin to validate the uniqueness of multiple columns of a model.
 
