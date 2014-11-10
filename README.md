@@ -149,7 +149,7 @@ public $actsAs = array('MultiColumnUniqueness.MultiColumnUniqueness' => array(
 		array('name', 'manufacturer_id'),
 		array('field1', 'field2', 'field3'),
 	),
-	"onlyOnce' => false,
+	'onlyOnce' => false,
 ));
 ````
 This option can only be set per model, not per unique field group.
