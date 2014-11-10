@@ -156,7 +156,6 @@ This option can only be set per model, not per unique field group.
 
 ## TODOs
 
-* A composer.json
 * Checking the Code Style with phpcs in Travis, [as CakePHP does](https://github.com/cakephp/cakephp/blob/master/.travis.yml)
 * Running the tests with other databases in Travis, [as CakePHP does](https://github.com/cakephp/cakephp/blob/master/.travis.yml)
 * See the [open issues](https://github.com/ravage84/MultiColumnUniqueness/issues)
