@@ -1,8 +1,8 @@
 MultiColumnUniqueness
 =====================
-[![Traiv-CI Build Status](https://travis-ci.org/ravage84/MultiColumnUniqueness.png)](https://travis-ci.org/ravage84/MultiColumnUniqueness)
-[![Coverage Status](https://img.shields.io/coveralls/ravage84/MultiColumnUniqueness.svg)](https://coveralls.io/r/ravage84/MultiColumnUniqueness?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ravage84/MultiColumnUniqueness/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ravage84/MultiColumnUniqueness/?branch=master)
+[![Travis-CI Build Status](https://travis-ci.org/ravage84/cakephp-multi-column-uniqueness.png)](https://travis-ci.org/ravage84/cakephp-multi-column-uniqueness)
+[![Coverage Status](https://img.shields.io/coveralls/ravage84/cakephp-multi-column-uniqueness.svg)](https://coveralls.io/r/ravage84/cakephp-multi-column-uniqueness?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ravage84/cakephp-multi-column-uniqueness/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ravage84/cakephp-multi-column-uniqueness/?branch=master)
 
 A CakePHP 2.x behavior plugin to validate the uniqueness of multiple columns of a model.
 
@@ -24,20 +24,20 @@ But it should work with
 
 * Clone/Copy the files in this directory into `app/Plugin/MultiColumnUniqueness`
 * Ensure the plugin is loaded in `app/Config/bootstrap.php` by calling `CakePlugin::load('MultiColumnUniqueness');` or `CakePlugin::loadAll();`
- 
+
 ### Using Composer
 
 Not supported yet.
 
 ## Reporting issues
 
-If you have an problem with this plugin please [open an issue](https://github.com/ravage84/MultiColumnUniqueness/issues/new).
-But check if [the problem has already been reported](https://github.com/ravage84/MultiColumnUniqueness/issues).
+If you have an problem with this plugin please [open an issue](https://github.com/ravage84/cakephp-multi-column-uniqueness/issues/new).
+But check if [the problem has already been reported](https://github.com/ravage84/cakephp-multi-column-uniqueness/issues).
 
 ## Contributing
 
-If you'd like to contribute to this project, check out the [open issues](https://github.com/ravage84/MultiColumnUniqueness/issues) for any planned features or open bugs.
-You can fork the project, add features, documentation, and send pull requests; or [open issues](https://github.com/ravage84/MultiColumnUniqueness/issues/new).
+If you'd like to contribute to this project, check out the [open issues](https://github.com/ravage84/cakephp-multi-column-uniqueness/issues) for any planned features or open bugs.
+You can fork the project, add features, documentation, and send pull requests; or [open issues](https://github.com/ravage84/cakephp-multi-column-uniqueness/issues/new).
 
 # Versioning
 
@@ -158,8 +158,8 @@ This option can only be set per model, not per unique field group.
 
 * Checking the Code Style with phpcs in Travis, [as CakePHP does](https://github.com/cakephp/cakephp/blob/master/.travis.yml)
 * Running the tests with other databases in Travis, [as CakePHP does](https://github.com/cakephp/cakephp/blob/master/.travis.yml)
-* See the [open issues](https://github.com/ravage84/MultiColumnUniqueness/issues)
- 
+* See the [open issues](https://github.com/ravage84/cakephp-multi-column-uniqueness/issues)
+
 ## Background Story
 
 I needed to validate the uniqueness of two fields of a model.
