@@ -10,7 +10,7 @@ A CakePHP 2.x behavior plugin to validate the uniqueness of multiple columns of 
 
 The plugin has been tested with the following setup(s)
 
-* CakePHP 2.4.1
+* CakePHP 2.4.1 - 2.5.4
 * PHP 5.4.7
 * MySQL
 
