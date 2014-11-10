@@ -1,29 +1,29 @@
 {
   "name": "ravage84/multi-column-uniqueness",
   "description": "A CakePHP Plugin for Validating Composite Unique Indices",
-	"keywords":[
-	  "cakephp",
-	  "plugin",
-	  "data validation",
-	  "multi column uniqueness",
-	  "multi column",
-	  "unique"
-	],
+    "keywords":[
+      "cakephp",
+      "plugin",
+      "data validation",
+      "multi column uniqueness",
+      "multi column",
+      "unique"
+    ],
   "type": "cakephp-plugin",
   "homepage": "https://github.com/ravage84/multi-column-uniqueness",
   "license": "MIT",
   "authors": [
-	{
-	  "name": "Marc Würth",
-	  "homepage": "https://github.com/ravage84/",
-	  "email": "ravage@bluewin.ch",
-	  "role": "Lead developer"
+    {
+      "name": "Marc Würth",
+      "homepage": "https://github.com/ravage84/",
+      "email": "ravage@bluewin.ch",
+      "role": "Lead developer"
     },
-	{
-	  "name": "Other contributors",
-	  "homepage": "https://github.com/ravage84/multi-column-uniqueness/graphs/contributors",
-	  "role": "Contributors"
-	}
+    {
+      "name": "Other contributors",
+      "homepage": "https://github.com/ravage84/multi-column-uniqueness/graphs/contributors",
+      "role": "Contributors"
+    }
   ],
   "support": {
     "source": "https://github.com/ravage84/multi-column-uniqueness",
