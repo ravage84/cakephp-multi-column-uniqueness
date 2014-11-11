@@ -168,7 +168,7 @@ Not separately as CakePHP supports built-in by the [isUnique data validation rul
 but in conjunction with each other.
 After I didn't found any built-in solution for my problem I turned to Google and [found some articles about this](http://stackoverflow.com/questions/2461267/cakephp-isunique-for-2-fields).
 Also I asked [dereuromark](https://github.com/dereuromark) if he knew if there was an existing solution.
-He pointed me to [his extended model called MyModel](https://github.com/dereuromark/tools/blob/master/Model/MyModel.php#L959) in his [Tools project](https://github.com/dereuromark/tools/).
+He pointed me to [his extended model called MyModel](https://github.com/dereuromark/cakephp-tools/blob/0.4/Model/MyModel.php#L903) in his [Tools project](https://github.com/dereuromark/tools/).
 
 Those solutions seemed to work but all of them either weren't up to date, weren't clean enough in their approach or forced me to add way too much code for my narrow needs.
 So I decided to write a behavior for it (my first by the way).
