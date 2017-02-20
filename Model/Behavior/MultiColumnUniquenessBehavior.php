@@ -145,7 +145,7 @@ class MultiColumnUniquenessBehavior extends ModelBehavior {
 		$fieldGroupCount = count($this->settings[$model->alias]['fields']);
 		for ($groupNr = 0;$groupNr < $fieldGroupCount; $groupNr++) {
 			if (!isset($this->settings[$model->alias]['errMsg'][$groupNr])) {
-				$fieldNames = String::toList($this->settings[$model->alias]['fields'][$groupNr]);
+				$fieldNames = CakeText::toList($this->settings[$model->alias]['fields'][$groupNr]);
 				$this->settings[$model->alias]['errMsg'][$groupNr] = sprintf('The fields %s must be unique.', $fieldNames);
 			}
 		}
