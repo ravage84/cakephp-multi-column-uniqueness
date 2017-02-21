@@ -20,6 +20,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Replace usage of deprecated String with CakeText in a BC way
 - Replace death star version constraint for composer/installers with ^1.1
+- Replace dev-master version constraint for satooshi/php-coveralls with ^1.0
 
 ## [0.3.0](https://github.com/ravage84/cakephp-multi-column-uniqueness/releases/tag/0.3.0) - 2014-11-10
 ### Added
