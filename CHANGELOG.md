@@ -14,6 +14,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - This changelog
 
+### Changed
+- Improved the .gitignore file to exclude common folders and files
+
 ### Fixed
 - Replace usage of deprecated String with CakeText in a BC way
 - Replace death star version constraint for composer/installers with ^1.1

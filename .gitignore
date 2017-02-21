@@ -1,5 +1,9 @@
 # User specific & automatically generated files #
 #################################################
+/build
+/vendor
+/phpunit.xml
+/phpcs.xml
 *.mo
 
 # IDE and editor specific files #
@@ -11,6 +15,10 @@
 .project
 .buildpath
 .settings
+
+# PHP Tools #
+#############
+*.phar
 
 # OS generated files #
 ######################
