@@ -34,8 +34,8 @@
     "composer/installers": "^1.1"
   },
   "require-dev": {
-    "phpunit/phpunit": "3.7.38",
-    "cakephp/cakephp-codesniffer": "0.1.29 ",
+    "phpunit/phpunit": "^3.7.38",
+    "cakephp/cakephp-codesniffer": "^0.1.29 ",
     "satooshi/php-coveralls": "^1.0"
   },
   "extra": {
